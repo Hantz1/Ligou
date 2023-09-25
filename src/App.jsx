@@ -1,7 +1,9 @@
 import Header from './components/header/header';
 import Sidebar from './components/sidebar/sidebar';
 import Error from './pages/error/error';
+import Help from './pages/help/help';
 import Home from './pages/home/home';
+import Order from './pages/order/order';
 import Products from './pages/products/products';
 import Reports from './pages/reports/reports';
 import Settings from './pages/settings/settings';
@@ -22,9 +24,11 @@ function App() {
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/products' element={<Products/>}/>
+            <Route path='/order' element={<Order/>}/>
             <Route path='/reports' element={<Reports/>}/>
             <Route path='/team' element={<Team/>}/>
             <Route path='/Settings' element={<Settings/>}/>
+            <Route path='/help' element={<Help/>}/>
             <Route path='*' element={<Error/>}/>
             <Route/>
           </Routes>
