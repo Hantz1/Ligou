@@ -235,7 +235,26 @@
 .categories > div{
   display: flex;
   flex-direction: row;
+  gap: 10px;
 }
+
+.itemCategory{
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 70px;
+  height: 20px;
+  text-align: center;
+  padding: 5px;
+}
+
+.itemCategory:hover{
+  background-color:#2ba062;
+}
+
+.itemCategory > h6{
+  font-size: .8em;
+}
+
 .categories > h3{
   font-size: .9em;
   margin-top: 3px;
@@ -295,6 +314,54 @@
   width: 26px;
   height: 26px;
 }
+
+/* cart_list */
+.cart_list{
+  display: flex;
+  flex-direction: column;
+  width: 96%;
+  gap: 10px;
+  height: 370px;
+  max-height: 370px;
+  overflow: auto;
+}
+
+.cart_item{
+  width: 95%;
+  height: 50px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  padding: 5px;
+  gap: 2px;
+}
+
+.cart_item_image{
+  width: 35%;
+  height: 100%;
+}
+
+.cart_item_image > img{
+  width: 85%;
+  height: 48px;
+  border-radius: 5px;
+}
+.cart_item_body{
+  width: 45%;
+  height: 100%;
+}
+
+.cart_item_other{
+  width: 20%;
+  height: 100%;
+}
+
+.cart_item_other > img{
+  width: 18px;
+  height: 18px;
+} 
+/* End cart_list */
 
 /*  */
 .cart_calcul{
