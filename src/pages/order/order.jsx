@@ -1,12 +1,15 @@
 import styled from "styled-components"
 import close from '../../assets/image/icons/close.png'
 
+import { tampon } from "../../utils/datas/tampon"
+import Product from "../../components/product/product"
+
 function Order(){
     const Container=styled.div`
         margin: 10px;
         display: flex;
         flex-direction: row;
-        gap: 10px
+        gap: 5px
     `
     const Left = styled.div`
         display: flex;
@@ -21,6 +24,10 @@ function Order(){
         width: 25%;
     `
     
+    function addCart(name){
+        console.log(`Vous avez choisi:  ${name}`)
+    }
+    
     return(
         <Container>
             <Left>
@@ -29,6 +36,17 @@ function Order(){
                 </div>
                 <div className="list_products">
                     <h3>Listes Produits</h3>
+                    <div>
+                        {tampon.map(({id,name,prix,image})=>(
+                            <div key={id} onClick={()=>addCart(name)}>
+                                <Product 
+                                    name={name} 
+                                    prix={prix} 
+                                    image={image}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </Left>
             <Right>
