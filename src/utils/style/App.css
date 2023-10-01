@@ -151,6 +151,7 @@
   height: 75px;
   border-radius: 5px;
   padding: 5px;
+  border-left: 3px solid #2ba062;
 }
 
 .overview_order{

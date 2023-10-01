@@ -15,7 +15,8 @@ function Cart({cart, updateCart}){
     0)
 
     function remove(name){
-        console.log(`${name} est l'element supprime dans la liste de cart.`)
+        const FiltreCart = cart.filter((item)=>item.name !== name)
+        updateCart(FiltreCart)
     }
 
     return (

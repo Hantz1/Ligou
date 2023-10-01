@@ -1,0 +1,27 @@
+{
+  "products": [
+    {
+      "nom": "wing",
+      "prix": "200",
+      "image": "blob:http://localhost:3001/6a9ff6b1-693e-4cbc-a5c7-524b4e156c3d",
+      "categorie": "wing",
+      "id": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Burger",
+      "prix": 50,
+      "image": "burger1",
+      "category": "burder"
+    },
+    {
+      "id": 2,
+      "name": "tea",
+      "prix": 25,
+      "image": "tea",
+      "category": "tea"
+    }
+  ]
+}

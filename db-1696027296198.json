@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Burger",
+      "prix": 50,
+      "image": "burger1",
+      "category": "burder"
+    },
+    {
+      "id": 2,
+      "name": "tea",
+      "prix": 25,
+      "image": "tea",
+      "category": "tea"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Burger",
+      "prix": 50,
+      "image": "burger1",
+      "category": "burder"
+    },
+    {
+      "id": 2,
+      "name": "tea",
+      "prix": 25,
+      "image": "tea",
+      "category": "tea"
+    }
+  ]
+}

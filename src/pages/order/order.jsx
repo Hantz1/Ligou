@@ -1,8 +1,10 @@
 import styled from "styled-components"
-import { tampon } from "../../utils/datas/tampon"
 import Product from "../../components/product/product"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Cart from "../../components/cart/cart"
+import { getProducts } from "../../utils/services/productService"
+import { ProductContext } from "../../utils/context/context"
+
 
 function Order(){
     const Container=styled.div`
@@ -33,17 +35,34 @@ function Order(){
         padding: 5px;
     `
 
+    // Sauvegarde des produits ajouté au cart dans le local storage
     const savedCart= localStorage.getItem('cart')
     const [cart, updateCart] = useState(savedCart ? JSON.parse(savedCart) : [])
-
     useEffect(()=>{
         localStorage.setItem('cart',JSON.stringify(cart))
     },
     [cart])
 
+
+    const [products, setProducts]= useContext(ProductContext)
+    useEffect(()=>{
+        handleGetProducts();
+    },[])
+
+    const handleGetProducts = ()=>{
+        getProducts()
+            .then((resp)=> {
+                setProducts(resp.data)
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+    }
+
     
+    // Pour trier les categories depuis productData
     const [ActiveCategory, setActiveCategory] = useState('')
-    const categories = tampon.reduce((acc, item)=> 
+    const categories = products?.reduce((acc, item)=> 
         acc.includes(item.category) ? acc : acc.concat(item.category),
     [])
 
@@ -75,7 +94,7 @@ function Order(){
                             <h6>All</h6>
                         </Reinitialiser>
 
-                        {categories.map((item, index)=>
+                        {categories?.map((item, index)=>
                             <div key={index} className="itemCategory" onClick={()=> setActiveCategory(item)}>
                                 <h6>{item}</h6>
                             </div>
@@ -85,7 +104,7 @@ function Order(){
                 <div className="list_products">
                     <h3>Listes Produits</h3>
                     <div>
-                        {tampon.map(({id,name,prix,image,category})=>
+                        {products?.map(({id,name,prix,image,category})=>
                         !ActiveCategory || ActiveCategory === category 
                         ?(
                             <div key={id} onClick={()=>addToCart(name, prix,image)}>
