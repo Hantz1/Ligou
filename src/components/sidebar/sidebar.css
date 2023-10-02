@@ -1,0 +1,44 @@
+/* Sidebar */
+.open > img{
+    width: 20px;
+    height: 20px;
+  }
+  
+  .menu{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+  }
+  
+  .menu_item{
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .menu_item > div > img{
+    width: 27px;
+    height: 27px;
+    filter: invert(88%) sepia(7%) saturate(11%) hue-rotate(324deg) brightness(85%) contrast(83%);
+  }
+  
+  .menu_title{
+    text-decoration: none;
+    color: #525252;
+    font-size: .85em;
+    padding-bottom: 2.5px;
+  }
+  
+  .menu_item:hover{
+    background-color: #c7e1d2;
+    border-radius: 5px;
+  }
+  
+  .menu_item:focus{
+    background-color: #c7e1d2;
+    border-radius: 5px;
+    border-left:5px solid #2ba062;
+  }

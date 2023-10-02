@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react"
 import Cart from "../../components/cart/cart"
 import { getProducts } from "../../utils/services/productService"
 import { ProductContext } from "../../utils/context/context"
-
+import './order.css'
 
 function Order(){
     const Container=styled.div`

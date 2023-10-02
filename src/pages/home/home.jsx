@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import StateProduct from '../../components/stateProduct/stateProduct'
+import './home.css'
 
 function Home(){
     const Dashboard=styled.div`
@@ -35,7 +35,7 @@ function Home(){
                     <h4>Overview</h4>
                     <div>
                         <div className='card_overview'>
-                            <StateProduct></StateProduct>
+                            card 1
                         </div>
                         <div className='card_overview'>
                             Card 2

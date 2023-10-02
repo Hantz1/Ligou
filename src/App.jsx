@@ -10,9 +10,9 @@ import Settings from './pages/settings/settings';
 import Team from './pages/team/team';
 import './utils/style/App.css';
 import { Routes, Route } from 'react-router-dom'
-import NewProduct from './pages/newProduct/newProduct';
 import UpdateProduct from './pages/updateProduct/updateProduct';
 import {  ProductProvider } from './utils/context/context';
+import AddProduct from './pages/addProduct/addProduct';
 
 function App() {
   
@@ -29,7 +29,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/products' element={<Products/>}/>
-              <Route path='/newProduct' element={<NewProduct/>}/>
+              <Route path='/addProduct' element={<AddProduct/>}/>
               <Route path='/updateProduct/:id' element={<UpdateProduct/>}/>
               <Route path='/order' element={<Order/>}/>
               <Route path='/reports' element={<Reports/>}/>

@@ -1,0 +1,25 @@
+/* Product */
+/* Design item product */
+.card{
+    width: 140px;
+    height: 150px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+  }
+  
+  .header_card > img{
+    width: 140px;
+    height: 90px;
+    border-radius: 5px 5px 0px 0px;
+  }
+  
+  .body_card{
+    width: 100%;
+  }
+  
+  .body_card > div{
+    margin: 5px;
+  }

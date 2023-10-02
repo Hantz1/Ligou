@@ -1,0 +1,51 @@
+/* Header */
+/* Left */
+.bSearch{
+    width: 40px;
+    height: 30px;
+    background-color: #2ba062;
+    border-radius: 5px 0px 0px 5px;
+  }
+  
+  .bSearch > input{
+    width: 22px;
+    height: 22px;
+    margin: 5px;
+  }
+  .input{
+    border: 0px solid #c7e1d2;
+    background-color: #c7e1d2;
+    color: #919090;
+    border-radius: 0px 5px 5px 0px;
+    width: 220px;
+    height: 28px;
+  }
+  
+  /* Right */
+  .notification > img{
+    width: 18px;
+    height: 18px;
+    opacity: .8;
+  }
+  
+  .profil{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3px;
+  }
+  
+  .profil > img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+  }
+  
+  .profil > div > h5{
+    font-size: .7em;
+  }
+  
+  .profil > div > h6{
+    font-size: .4em;
+  }
+  

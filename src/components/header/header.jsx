@@ -4,6 +4,7 @@ import '../../utils/style/App.css'
 import iconSearch from '../../assets/image/icons/search.png'
 import iconProfil from '../../assets/image/icons/profil.JPG'
 import iconNotification from '../../assets/image/icons/notification.png'
+import './header.css'
 
 const Head = styled.header`
     margin: 10px;

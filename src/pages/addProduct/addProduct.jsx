@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { saveProduct } from '../../utils/services/productService'
 import { useNavigate } from 'react-router-dom'
 
-function NewProduct() {
+function AddProduct() {
   const navigate = useNavigate()
 
   const [nom, setNom] = useState('')
@@ -53,4 +53,4 @@ function NewProduct() {
   )
 }
 
-export default NewProduct
+export default AddProduct

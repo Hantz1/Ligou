@@ -1,0 +1,55 @@
+/* Order */
+.categories{
+    width: 95%;
+  }
+  .categories > div{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .itemCategory{
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 70px;
+    height: 20px;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  .itemCategory:hover{
+    background-color:#2ba062;
+  }
+  
+  .itemCategory > h6{
+    font-size: .8em;
+  }
+  
+  .categories > h3{
+    font-size: .9em;
+    margin-top: 3px;
+    margin-bottom: 7px
+  }
+  
+  /* List products in Order */
+  .list_products{
+    width: 95%;
+  }
+  .list_products > div{
+    width: 100%;
+    max-height: 460px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    overflow: auto;
+  }
+  
+  .list_products > h3{
+    font-size: .9em;
+    margin-top: 3px;
+    margin-bottom: 7px
+  }
+  /* End list products in Order */
+  

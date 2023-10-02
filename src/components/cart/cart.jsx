@@ -1,5 +1,6 @@
 // import close from '../../assets/image/icons/close.png'
 import deleteitem from '../../assets/image/icons/delete.png'
+import './cart.css'
 
 function Cart({cart, updateCart}){
 

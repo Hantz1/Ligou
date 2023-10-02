@@ -1,0 +1,83 @@
+/* Dashboard */
+/* Dashboard-Left */
+.banner{
+    width: 90%;
+    height: 120px;
+    background-color: #2ba062;
+    border-radius: 5px;
+    padding: 20px;
+    color: #ffffff;
+  }
+  
+  .overview{
+    width: 95%;
+  }
+  
+  .overview > div{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
+  
+  .overview > h4{
+    font-size: .9em;
+    margin-top: 3px;
+    margin-bottom: 7px;
+  }
+  .card_overview{
+    background-color: #ffffff;
+    width: 35%;
+    height: 75px;
+    border-radius: 5px;
+    padding: 5px;
+    border-left: 3px solid #2ba062;
+  }
+  
+  .overview_order{
+    width: 95%;
+  }
+  
+  .overview_order > h3{
+    font-size: .9em;
+    margin-top: 3px;
+    margin-bottom: 7px;
+  }
+  
+  .overview_order > .card_tableau_overview{
+    background-color: #ffffff;
+    height: 210px;
+    border-radius: 5px;
+  }
+  
+  /* Dashboard-Right */
+  .overview_best_sales{
+    width: 95%;
+  }
+  
+  .overview_best_sales > div{
+    background-color: #ffffff;
+    height: 220px;
+    border-radius: 5px;
+  }
+  
+  .overview_best_sales > h3{
+    font-size: .9em;
+    margin-top: 3px;
+    margin-bottom: 7px
+  }
+  .overview_chart{
+    width: 95%;
+  }
+  
+  .overview_chart > div{
+    background-color: #ffffff;
+    height: 250px;
+    border-radius: 5px;
+  }
+  
+  .overview_chart > h3{
+    font-size: .9em;
+    margin-top: 3px;
+    margin-bottom: 7px
+  }
+  
