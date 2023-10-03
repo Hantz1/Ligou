@@ -3,37 +3,41 @@ import Product from "../../components/product/product"
 import { useContext, useEffect, useState } from "react"
 import Cart from "../../components/cart/cart"
 import { getProducts } from "../../utils/services/productService"
-import { ProductContext } from "../../utils/context/context"
+import { PathContext, ProductContext } from "../../utils/context/context"
 import './products.css'
 
+import {tampon} from '../../utils/datas/tampon'
+import { Link } from "react-router-dom"
+
 function Products(){
-    const Container=styled.div`
-        margin: 10px;
-        display: flex;
-        flex-direction: row;
-        gap: 5px
-    `
-    const Left = styled.div`
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 75%;
-        gap: 10px
-    `
-    const Right = styled.div`
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 25%;
-    `
-    const Reinitialiser = styled.div`
-        background-color: #ffffff;
-        border-radius: 10px;
-        width: 70px;
-        height: 20px;
-        text-align: center;
-        padding: 5px;
-    `
+    const path = useContext(PathContext)
+    // const Container=styled.div`
+    //     margin: 10px;
+    //     display: flex;
+    //     flex-direction: row;
+    //     gap: 5px
+    // `
+    // const Left = styled.div`
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     width: 75%;
+    //     gap: 10px
+    // `
+    // const Right = styled.div`
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     width: 25%;
+    // `
+    // const Reinitialiser = styled.div`
+    //     background-color: #ffffff;
+    //     border-radius: 10px;
+    //     width: 70px;
+    //     height: 20px;
+    //     text-align: center;
+    //     padding: 5px;
+    // `
 
     // Sauvegarde des produits ajouté au cart dans le local storage
     const savedCart= localStorage.getItem('cart')
@@ -62,7 +66,7 @@ function Products(){
     
     // Pour trier les categories depuis productData
     const [ActiveCategory, setActiveCategory] = useState('')
-    const categories = products?.reduce((acc, item)=> 
+    const categories = tampon?.reduce((acc, item)=> 
         acc.includes(item.category) ? acc : acc.concat(item.category),
     [])
 
@@ -85,14 +89,25 @@ function Products(){
     }
     
     return(
-        <Container>
-            <Left>
+        <div className="container">
+            <div className="container_left">
+                {/*  */}
+                <div className="header_products">
+                    <div className="header_title">
+                        <h3>Liste des produits</h3>
+                        <h6>{path}</h6>
+                    </div>
+                    <div className="header_button">
+                        <Link to={"/addProduct"} className="button-link" >+ AddProduct</Link>
+                    </div>
+                </div>
+                {/*  */}
                 <div className="categories">
                     <h3>Categories</h3>
                     <div>
-                        <Reinitialiser onClick={()=> setActiveCategory('')}>
+                        <div className="Reinitialiser" onClick={()=> setActiveCategory('')}>
                             <h6>All</h6>
-                        </Reinitialiser>
+                        </div>
 
                         {categories?.map((item, index)=>
                             <div key={index} className="itemCategory" onClick={()=> setActiveCategory(item)}>
@@ -101,10 +116,11 @@ function Products(){
                         )}
                     </div>
                 </div>
+                {/*  */}
                 <div className="list_products">
-                    <h3>Listes Produits</h3>
+                    {/* <h3>Listes</h3> */}
                     <div>
-                        {products?.map(({id,name,prix,image,category})=>
+                        {tampon?.map(({id,name,prix,image,category})=>
                         !ActiveCategory || ActiveCategory === category 
                         ?(
                             <div key={id} onClick={()=>addToCart(name, prix,image)}>
@@ -118,11 +134,11 @@ function Products(){
                         )}
                     </div>
                 </div>
-            </Left>
-            <Right>
+            </div>
+            <div className="container_right">
                 <Cart cart={cart} updateCart={updateCart}/>
-            </Right>
-        </Container>
+            </div>
+        </div>
     )
 }
 

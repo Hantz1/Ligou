@@ -57,7 +57,7 @@ function Orders(){
     return(
         <div className="body-products">
             <div className="overview-header">
-                <h3 className="header_title">Order list</h3>
+                <h3 className="header_title">Liste des commandes</h3>
                 <h6 className="header_path">{path}</h6>
             </div>
 
