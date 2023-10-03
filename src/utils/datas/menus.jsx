@@ -22,7 +22,7 @@ export const menus= [
     {
         id: 3,
         path: '/order',
-        titre: 'Order',
+        titre: 'Orders',
         image: order
     },
     {

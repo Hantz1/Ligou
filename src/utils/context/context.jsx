@@ -11,3 +11,13 @@ export function ProductProvider ({children}){
         </ProductContext.Provider>
     )
 }
+
+export const PathContext = createContext()
+export function PathProvider({children}){
+    const path = useState('')
+    return(
+        <PathContext.Provider value={path}>
+            {children}
+        </PathContext.Provider>
+    )
+}

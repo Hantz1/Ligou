@@ -1,138 +1,129 @@
+import styled from "styled-components"
+import Product from "../../components/product/product"
 import { useContext, useEffect, useState } from "react"
-import { deleteProduct, getProducts } from "../../utils/services/productService"
-import { Link, useNavigate } from "react-router-dom";
-import { ProductContext } from "../../utils/context/context";
-import deleteElement from '../../assets/image/icons/delete.png'
-import edit from '../../assets/image/icons/edit.png'
+import Cart from "../../components/cart/cart"
+import { getProducts } from "../../utils/services/productService"
+import { ProductContext } from "../../utils/context/context"
 import './products.css'
+
 function Products(){
-    const navigate = useNavigate();
-    
-    const [products, setProducts] = useContext(ProductContext)
-    const column = ['Id' , 'Nom', 'Prix', 'Category','Action' ]
+    const Container=styled.div`
+        margin: 10px;
+        display: flex;
+        flex-direction: row;
+        gap: 5px
+    `
+    const Left = styled.div`
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 75%;
+        gap: 10px
+    `
+    const Right = styled.div`
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 25%;
+    `
+    const Reinitialiser = styled.div`
+        background-color: #ffffff;
+        border-radius: 10px;
+        width: 70px;
+        height: 20px;
+        text-align: center;
+        padding: 5px;
+    `
 
-    const [currentPage, setCurrentPage]= useState(1)
-    const recordsPerPage = 5;
-    const lastIndex = currentPage * recordsPerPage;
-    const firstIndex = lastIndex - recordsPerPage;
-    const records = products.slice(firstIndex, lastIndex)
-    const npage = Math.ceil(products.length/recordsPerPage)
-    const numbers = [...Array(npage + 1).keys()].slice(1)
-    
-    
-
+    // Sauvegarde des produits ajouté au cart dans le local storage
+    const savedCart= localStorage.getItem('cart')
+    const [cart, updateCart] = useState(savedCart ? JSON.parse(savedCart) : [])
     useEffect(()=>{
-        handleGetProducts()
-    }, [])
+        localStorage.setItem('cart',JSON.stringify(cart))
+    },
+    [cart])
+
+
+    const [products, setProducts]= useContext(ProductContext)
+    useEffect(()=>{
+        handleGetProducts();
+    },[])
 
     const handleGetProducts = ()=>{
         getProducts()
             .then((resp)=> {
                 setProducts(resp.data)
-                console.log(products)
             })
-            .catch((error)=>{ 
+            .catch((error)=>{
                 console.log(error)
             })
     }
 
-    function deleteItem(id){
-        deleteProduct(id)
-        .then((resp)=>{
-            handleGetProducts()
-        })
-        .catch((error)=>{
-            console.log(error)
-        })
-    }
-
-
-    return(
-        <div className="body-products">
-            <div className="overview-header">
-                header
-            </div>
-
-            <div className="overview-table">
-
-                <div className="content-header">
-                    <div>
-                        <form>
-                            <input type='search'/>
-                        </form>
-                    </div>
-                    <div className="button-add">
-                        <Link to={"/addProduct"} className="button-link">Add product</Link>
-                    </div>
-                </div>
-                
-                <div className="content-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                {column.map((item, i)=>(
-                                    <th key={i}>{item}</th>
-                                ))}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                records.map(({id, nom, prix, category})=>
-                                    (<tr key={id}>
-                                        <td>{id}</td>
-                                        <td>{nom}</td>
-                                        <td>{prix}</td>
-                                        <td>{category}</td>
-                                        <td>
-                                            <img src={deleteElement} alt="delete" onClick={()=> deleteItem(id)} className="icon-delete"/>
-                                            <img src={edit} alt="update" onClick={()=> navigate(`/updateProduct/${id}`)} className="icon-update"/>
-                                        </td>
-                                    </tr>)
-                                )
-                            }
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div className="content-pagination">
-                    <nav>
-                        <ul className='pagination'>
-                            <li className='page-item'>
-                                <button onClick={prePage} className='page-link'>prev</button>
-                            </li>
-                            {
-                                numbers.map((n,i)=>(
-                                    <li key={i} className={`page-item ${currentPage===n ? 'active' : ''}`}>
-                                        <button onClick={()=>changeCPage(n)} className='page-link'>{n}</button>
-                                    </li>
-                                ))
-                            }
-                            <li className='page-item'>
-                                <button onClick={nextPage} className='page-link'>Next</button>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        
-    )
-
-    function prePage(){
-        if(currentPage !== 1){
-            setCurrentPage(currentPage - 1)
-        }
-      }
-      function changeCPage(id){
-        setCurrentPage(id)
-      }
     
-      function nextPage(){
-        if(currentPage !== npage){
-            setCurrentPage(currentPage + 1)
+    // Pour trier les categories depuis productData
+    const [ActiveCategory, setActiveCategory] = useState('')
+    const categories = products?.reduce((acc, item)=> 
+        acc.includes(item.category) ? acc : acc.concat(item.category),
+    [])
+
+
+    function addToCart(name, prix, image){
+        const CartAjouter = cart.find((item)=>item.name === name)
+
+        if(CartAjouter){
+            const FiltreCartAjouter = cart.filter((item)=>item.name !== name)
+            updateCart([
+                ...FiltreCartAjouter,
+                {name, prix, image, amount: CartAjouter.amount + 1}
+            ])
+        }else{
+            updateCart([
+                ...cart,
+                {name, prix, image, amount:1}
+            ])
         }
-      }
-     
+    }
+    
+    return(
+        <Container>
+            <Left>
+                <div className="categories">
+                    <h3>Categories</h3>
+                    <div>
+                        <Reinitialiser onClick={()=> setActiveCategory('')}>
+                            <h6>All</h6>
+                        </Reinitialiser>
+
+                        {categories?.map((item, index)=>
+                            <div key={index} className="itemCategory" onClick={()=> setActiveCategory(item)}>
+                                <h6>{item}</h6>
+                            </div>
+                        )}
+                    </div>
+                </div>
+                <div className="list_products">
+                    <h3>Listes Produits</h3>
+                    <div>
+                        {products?.map(({id,name,prix,image,category})=>
+                        !ActiveCategory || ActiveCategory === category 
+                        ?(
+                            <div key={id} onClick={()=>addToCart(name, prix,image)}>
+                                <Product 
+                                    name={name} 
+                                    prix={prix} 
+                                    image={image}
+                                />
+                            </div>
+                        ) : null
+                        )}
+                    </div>
+                </div>
+            </Left>
+            <Right>
+                <Cart cart={cart} updateCart={updateCart}/>
+            </Right>
+        </Container>
+    )
 }
 
 export default Products

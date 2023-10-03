@@ -13,6 +13,34 @@
       "image": "blob:http://localhost:3001/e4a018ba-2b9a-4048-addb-6a608855d823",
       "categorie": "sucre",
       "id": 3
+    },
+    {
+      "nom": "latte",
+      "prix": "300",
+      "image": "blob:http://localhost:3001/1b75bcfb-9ece-472b-ba72-dbb2740795b8",
+      "categorie": "latte",
+      "id": 4
+    },
+    {
+      "nom": "coffee",
+      "prix": "50",
+      "image": "blob:http://localhost:3001/d09e93f5-950f-407f-acfb-e447fe2bf13f",
+      "categorie": "coffee",
+      "id": 5
+    },
+    {
+      "nom": "latte",
+      "prix": "20",
+      "image": "blob:http://localhost:3001/1ef92ad4-9d9b-47e8-86ca-6f9f860917ff",
+      "categorie": "latte",
+      "id": 6
+    },
+    {
+      "nom": "spaguetty",
+      "prix": "20",
+      "image": "blob:http://localhost:3001/caa69a1f-85d6-4436-967a-4cacd4099587",
+      "categorie": "spaguetty",
+      "id": 7
     }
   ],
   "users": [

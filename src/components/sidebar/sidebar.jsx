@@ -3,6 +3,8 @@ import open_menu from '../../assets/image/icons/open_menu.png'
 import { Link } from 'react-router-dom'
 import { menus } from "../../utils/datas/menus"
 import './sidebar.css'
+import { useContext, useEffect } from "react"
+import { PathContext } from "../../utils/context/context"
 
 const Bar= styled.div`
     margin: 10px;
@@ -17,6 +19,13 @@ const Titre = styled.div`
     justify-content: space-between;
 `
 function Sidebar(){
+    const [currentRoute, setCurrentRoute]= useContext(PathContext)
+
+    useEffect(()=>{
+        const path= window.location.pathname.toLocaleLowerCase();
+        setCurrentRoute(path)
+    },[])
+
     return(
         <Bar>
             <div>
@@ -33,11 +42,26 @@ function Sidebar(){
             {/* Menu */}
             <div>
                 {menus.map((item, index)=>(
-                    <Link to={item.path} key={index} className="menu_item" style={{ textDecoration: 'none' }}>
+                    <Link to={item.path}
+                         key={index}  
+                         onClick={()=>setCurrentRoute(item.path)}
+                         className={currentRoute === item.path
+                                    ?"menu_item_active"
+                                    :"menu_item"} 
+                         style={{ textDecoration: 'none' }}
+                    >
                         <div>
-                            <img src={item.image} alt="icon"/>
+                            <img 
+                                src={item.image}
+                                alt="icon"
+                                className={currentRoute === item.path
+                                    ?"icon_active"
+                                    :"icon"}
+                            />
                         </div>
-                        <div className="menu_title">{item.titre}</div>
+                        <div className={currentRoute === item.path
+                                    ?"title_menu_active"
+                                    :"title_menu"}>{item.titre}</div>
                     </Link>
                 ))}
             </div>
