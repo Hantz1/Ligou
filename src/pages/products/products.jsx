@@ -11,33 +11,6 @@ import { Link } from "react-router-dom"
 
 function Products(){
     const path = useContext(PathContext)
-    // const Container=styled.div`
-    //     margin: 10px;
-    //     display: flex;
-    //     flex-direction: row;
-    //     gap: 5px
-    // `
-    // const Left = styled.div`
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: center;
-    //     width: 75%;
-    //     gap: 10px
-    // `
-    // const Right = styled.div`
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: center;
-    //     width: 25%;
-    // `
-    // const Reinitialiser = styled.div`
-    //     background-color: #ffffff;
-    //     border-radius: 10px;
-    //     width: 70px;
-    //     height: 20px;
-    //     text-align: center;
-    //     padding: 5px;
-    // `
 
     // Sauvegarde des produits ajouté au cart dans le local storage
     const savedCart= localStorage.getItem('cart')

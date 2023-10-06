@@ -4,13 +4,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyle from './utils/style/GlobalStyle';
 import {BrowserRouter as Router} from 'react-router-dom'
+import { IsOpenProvider } from './utils/context/context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <GlobalStyle/>
     <Router>
-      <App />
+      <IsOpenProvider>
+        <App />
+      </IsOpenProvider>  
     </Router>
   </React.StrictMode>
 );

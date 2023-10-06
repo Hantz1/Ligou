@@ -1,0 +1,108 @@
+.container_add_product{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header_container_add_product{
+    width: 90%;
+    height: 50px;
+    margin-left: 10px;
+    border-bottom: 1px solid #d5dbd9;
+}
+
+.header_container_add_product > h4{
+    margin: 5px;
+    font-size: .95em;
+    font-weight: normal;
+}
+
+.header_container_add_product > button{
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 70px;
+    height: 20px;
+    border: 0px;
+    background-color: #2ba062;
+    color: #fff;
+    font-family: 'Montserrat Regular';
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.form_container_add_product{
+    margin: 10px;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.form_group_add_product{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    margin: 7px;
+}
+
+.form_group_solo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 5px;
+}
+
+.form_label{
+    margin-bottom: 5px;
+}
+
+.form_input_product{
+    outline: #2ba062;
+    border: 1px solid #d5dbd9;
+    width: 100%;
+    height: 28px;
+    border-radius: 5px;
+    font-family: 'Montserrat Regular';
+    opacity: .8;
+}
+
+.form_input_product_solo{
+    outline: #2ba062;
+    border: 1px solid #d5dbd9;
+    width: 100%;
+    height: 100px;
+    border-radius: 5px;
+    opacity: .8;
+}
+
+/* Button */
+.form_group_button{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin: 7px;
+}
+
+.form_button_save{
+    width: 100px;
+    height: 30px;
+    border: 0px;
+    background-color: #2ba062;
+    color: #fff;
+    font-family: 'Montserrat Regular';
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* .form_button_cancel{
+    width: 100px;
+    height: 30px;
+    border: 1px solid gray;
+    background-color: #fff;
+    color: gray;
+    font-family: 'Montserrat Regular';
+    font-weight: bold;
+    border-radius: 5px;
+} */

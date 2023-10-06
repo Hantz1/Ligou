@@ -1,6 +1,12 @@
 .App{
   display: grid;
-  grid-auto-columns: 1fr 5fr;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 50px 570px;
+}
+
+.App_close{
+  display: grid;
+  grid-template-columns: 1fr 15fr;
   grid-template-rows: 50px 570px;
 }
 

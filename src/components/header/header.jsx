@@ -1,10 +1,12 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import styled from "styled-components"
 import '../../utils/style/App.css'
-import iconSearch from '../../assets/image/icons/search.png'
 import iconProfil from '../../assets/image/icons/profil.JPG'
 import iconNotification from '../../assets/image/icons/notification.png'
 import './header.css'
+
+import open_menu from '../../assets/image/icons/open_menu.png'
+import { IsOpenContext } from "../../utils/context/context"
 
 const Head = styled.header`
     margin: 10px;
@@ -28,27 +30,20 @@ const Right= styled.div`
 `
 
 function Header(){
-    const [search, setSearch] = useState('Search')
+    
+    const [isOpen, setOpen] = useContext(IsOpenContext)
 
-    // Pour verifier les valeurs input
-    function checkValue(value){
-        setSearch(value)
+    const changeIsOpen = ()=>{
+        isOpen === true ? (setOpen(false)) : (setOpen(true))
     }
-
 
     return(
         <Head>
             <div>
                 <Left>
-                    <div className="bSearch">
-                        <input type="image" src={iconSearch} alt="search"/>
+                    <div className="open">
+                        <img src={open_menu} alt="open" onClick={()=>changeIsOpen()}/>
                     </div>
-                    <input 
-                        type="text"
-                        value={search}
-                        onChange={(e)=>checkValue(e.target.value)}
-                        className="input"
-                    />
                 </Left>
             </div>
             <div>

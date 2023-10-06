@@ -21,3 +21,13 @@ export function PathProvider({children}){
         </PathContext.Provider>
     )
 }
+
+export const IsOpenContext = createContext()
+export function IsOpenProvider({children}){
+    const isOpen = useState(false)
+    return(
+        <IsOpenContext.Provider value={isOpen}>
+            {children}
+        </IsOpenContext.Provider>
+    )
+}

@@ -1,4 +1,13 @@
 {
-  "products": [],
+  "products": [
+    {
+      "nom": "Sandwish",
+      "prix": "300",
+      "categorie": "burder",
+      "description": "Sandwish au fromage avec jambon",
+      "image": "blob:http://localhost:3001/c1ef8159-fbc4-4178-a20b-5773697e3886",
+      "id": 1
+    }
+  ],
   "orders": []
 }

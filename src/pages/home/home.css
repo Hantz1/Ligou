@@ -1,12 +1,75 @@
 /* Dashboard */
+.dashboard{
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.left{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 65%;
+  gap: 15px;
+}
+
+.right{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+  gap: 15px;
+}
+
 /* Dashboard-Left */
 .banner{
     width: 90%;
-    height: 120px;
-    background-color: #2ba062;
+    height: 150px;
+    background-color: #c7e1d2;
     border-radius: 5px;
     padding: 20px;
     color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .intro_banner{
+    margin-top:10px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+  }
+
+  .intro_banner > div> h4{
+    font-family: 'Montserrat Black';
+    color: #2ba062;
+  }
+  .intro_banner > div> h6{
+    margin-top: 5px;
+    color: #2ba062;
+  }
+  .intro_banner > button{
+    width: 90px;
+    height: 27px;
+    border: 0px;
+    background-color: #2ba062;
+    border-radius: 5px;
+    color: #ffffff;
+    font-family: 'Montserrat Regular';
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  .image_banner{
+    height: 100%;
+  }
+
+  .image_banner > img{
+    width: 230px;
+    height: 200px;
   }
   
   .overview{
@@ -24,23 +87,42 @@
     margin-top: 3px;
     margin-bottom: 7px;
   }
+
+  /*  */
   .card_overview{
     background-color: #ffffff;
     width: 35%;
     height: 75px;
     border-radius: 5px;
     padding: 5px;
-    border-left: 3px solid #2ba062;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
-  
+
+  .card_overview>div>h4{
+    font-weight: normal;
+    font-size: .9em;
+  }
+  .card_overview>div>h6{
+    font-weight: normal;
+  }
+
+  .card_overview>.card_overview_image{
+    background-color: #2ba062;
+    opacity: .8;
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+  }
+  .card_overview>.card_overview_image>img{
+    width: 50px;
+    height: 50px;
+  }
+  /*  */
   .overview_order{
     width: 95%;
-  }
-  
-  .overview_order > h3{
-    font-size: .9em;
-    margin-top: 3px;
-    margin-bottom: 7px;
   }
   
   .overview_order > .card_tableau_overview{

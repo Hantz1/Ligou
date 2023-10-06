@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { menus } from "../../utils/datas/menus"
 import './sidebar.css'
 import { useContext, useEffect } from "react"
-import { PathContext } from "../../utils/context/context"
+import { IsOpenContext, PathContext } from "../../utils/context/context"
 
 const Bar= styled.div`
     margin: 10px;
@@ -14,12 +14,10 @@ const Bar= styled.div`
 `
 const Titre = styled.div`
     margin: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 `
 function Sidebar(){
     const [currentRoute, setCurrentRoute]= useContext(PathContext)
+    const [isOpen, setOpen] = useContext(IsOpenContext)
 
     useEffect(()=>{
         const path= window.location.pathname.toLocaleLowerCase();
@@ -30,12 +28,12 @@ function Sidebar(){
         <Bar>
             <div>
                 <Titre>
-                    <div className="titre">
+                    <div className={isOpen === true ? ('titre') : ('titre_not_isOpen')}>
                         <h3>Ligou</h3>
                     </div>
-                    <div className="open">
+                    {/* <div className="open">
                         <img src={open_menu} alt="open"/>
-                    </div>
+                    </div> */}
                 </Titre>
             </div>
 
@@ -59,9 +57,9 @@ function Sidebar(){
                                     :"icon"}
                             />
                         </div>
-                        <div className={currentRoute === item.path
+                        <div className={isOpen ===true ? (currentRoute === item.path
                                     ?"title_menu_active"
-                                    :"title_menu"}>{item.titre}</div>
+                                    :"title_menu") : 'title_menu_not_isOpen'}>{item.titre}</div>
                     </Link>
                 ))}
             </div>

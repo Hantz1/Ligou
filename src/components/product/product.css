@@ -1,7 +1,7 @@
 /* Product */
 /* Design item product */
 .card{
-    width: 140px;
+    width: 130px;
     height: 150px;
     background-color: #ffffff;
     display: flex;
@@ -11,7 +11,7 @@
   }
   
   .header_card > img{
-    width: 140px;
+    width: 130px;
     height: 90px;
     border-radius: 5px 5px 0px 0px;
   }
@@ -22,4 +22,12 @@
   
   .body_card > div{
     margin: 5px;
+  }
+
+  .body_card > div > h5{
+
+  }
+
+  .body_card > div > h6{
+    font-weight: normal;
   }

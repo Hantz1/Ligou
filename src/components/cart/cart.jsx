@@ -1,5 +1,6 @@
-// import close from '../../assets/image/icons/close.png'
+import panier from '../../assets/image/icons/panier.png'
 import deleteitem from '../../assets/image/icons/delete.png'
+import { saveOrder } from '../../utils/services/orderService';
 import './cart.css'
 
 function Cart({cart, updateCart}){
@@ -20,6 +21,17 @@ function Cart({cart, updateCart}){
         updateCart(FiltreCart)
     }
 
+    const valider=()=>{
+        let order= {cart, totalVente, totalAmount}
+        saveOrder(order)
+        .then((resp)=>
+        alert(JSON.stringify(resp.data)),
+        // navigate('/products')
+        ).catch((error)=>
+        alert(error)
+        )
+    }
+
     return (
         <div className="cart">
             <div className="cart_head">
@@ -32,32 +44,45 @@ function Cart({cart, updateCart}){
                     <img src={deleteitem} alt="close" onClick={()=> updateCart([])}/>
                 </div>
             </div>
-            <div className="cart_list">
-                {cart.map((item, index)=>
-                    <div key={index} className="cart_item">
-                        <div className="cart_item_image">
-                            <img src={item.image} alt="imagecart"/>
-                        </div>
-                        <div className="cart_item_body">
-                            <h5>{item.name}</h5>
-                            <h6>{item.prix}</h6>
-                        </div>
-                        <div className="cart_item_other">
-                            <img src={deleteitem} alt="delete" onClick={()=> remove(item.name)}/>
-                            <div>
-                                <h6>{item.amount}</h6>
+            
+            {cart.length > 0 ? 
+                    (<div className="cart_list">
+                        {cart.map((item, index)=>
+                            <div key={index} className="cart_item">
+                                <div className="cart_item_image">
+                                    <img src={item.image} alt="imagecart"/>
+                                </div>
+                                <div className="cart_item_body">
+                                    <h5>{item.name}</h5>
+                                    <h6>{item.prix}</h6>
+                                </div>
+                                <div className="cart_item_other">
+                                    <img src={deleteitem} alt="delete" onClick={()=> remove(item.name)}/>
+                                    <div>
+                                        <h6>{item.amount}</h6>
+                                    </div>
+                                </div>
                             </div>
+                        )}
+                    </div>) : 
+                    (<div className='cart_list_vide'>
+                        <div className='cart_list_vide_image'>
+                            <img src={panier} alt='panier'/>
                         </div>
-                    </div>
-                )}
-            </div>
+                        <div>
+                            <h4>Panier vide</h4>
+                            <h6>Pas de commande pour l'instant</h6>
+                        </div>
+                    </div>)
+            }
+
             <div className="cart_calcul">
                 <div>
                     <h5>items</h5>
                     <h6>{totalAmount}</h6>
                 </div>
                 <div>
-                    <h5>Tax (10%)</h5>
+                    <h5>Tax</h5>
                     <h6>Prix gdes</h6>
                 </div>
                 <div>
@@ -65,9 +90,9 @@ function Cart({cart, updateCart}){
                     <h6>{totalVente} gdes</h6>
                 </div>
             </div>
-            <div className="cart_valide">
+            <button className="cart_valide" onClick={()=>valider()}>
                 <h5>Print Bills</h5>
-            </div>
+            </button>
         </div>
     )
 }
