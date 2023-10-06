@@ -3,8 +3,14 @@ import image_banner from '../../assets/image/illustration/image_banner_4.png'
 import stock from '../../assets/image/icons/stock.png'
 import sales from '../../assets/image/icons/register.png'
 import cash from '../../assets/image/icons/cash.png'
+import { useContext } from 'react'
+import { ProductContext } from '../../utils/context/context'
+import { useNavigate } from 'react-router-dom'
 
 function Home(){
+    const [products, setProducts] = useContext(ProductContext)
+    const navigate = useNavigate()
+
     return(
         <div className='dashboard'>
 
@@ -17,7 +23,7 @@ function Home(){
                                 une meilleure gestion de leurs entreprises. Pour plus d'information sur nos services.
                             </h6>
                         </div>              
-                        <button>
+                        <button onClick={()=>navigate('/help')}>
                             cliquez ici
                         </button>
                     </div>
@@ -34,8 +40,8 @@ function Home(){
                                 <img src={stock} alt=''/>
                             </div>
                             <div>
-                                <h4>Total Products</h4>
-                                <h6></h6>
+                                <h4>Products en stock</h4>
+                                <h6>{products.length} en stock</h6>
                             </div>
                         </div>
                         <div className='card_overview'>
@@ -43,8 +49,8 @@ function Home(){
                                 <img src={sales} alt=''/>
                             </div>
                             <div>
-                                <h4>Total Sales</h4>
-                                <h6></h6>
+                                <h4>Montant en caisse</h4>
+                                <h6>Gdes</h6>
                             </div>
                         </div>
                         <div className='card_overview'>
@@ -52,8 +58,8 @@ function Home(){
                                 <img src={cash} alt=''/>
                             </div>
                             <div>
-                                <h4>Total users</h4>
-                                <h6></h6>
+                                <h4>Total ventes / jour</h4>
+                                <h6>Gdes</h6>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import open_menu from '../../assets/image/icons/open_menu.png'
 import { Link } from 'react-router-dom'
 import { menus } from "../../utils/datas/menus"
 import './sidebar.css'

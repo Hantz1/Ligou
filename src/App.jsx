@@ -15,6 +15,7 @@ import AddProduct from './pages/addProduct/addProduct';
 import Orders from './pages/orders/orders';
 import ItemProduct from './pages/itemProduct/itemProduct';
 import { useContext } from 'react';
+import Privileges from './pages/privileges/privileges';
 
 function App() {
   // Pour minimiser le menu
@@ -38,6 +39,7 @@ function App() {
               <Route path='/updateProduct/:id' element={<UpdateProduct/>}/>
               <Route path='/itemProduct/:id' element={<ItemProduct/>}/> 
               <Route path='/order' element={<Orders/>}/>
+              <Route path='/privileges' element={<Privileges/>}/>
               <Route path='/reports' element={<Reports/>}/>
               <Route path='/team' element={<Team/>}/>
               <Route path='/Settings' element={<Settings/>}/>

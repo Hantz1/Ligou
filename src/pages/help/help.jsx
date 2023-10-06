@@ -1,7 +1,11 @@
+import './help.css'
+
 function Help(){
     return(
-        <div>
-            Help
+        <div className="container">
+            <div className="container_help">
+                help
+            </div>
         </div>
     )
 }

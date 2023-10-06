@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import Product from "../../components/product/product"
 import { useContext, useEffect, useState } from "react"
 import Cart from "../../components/cart/cart"

@@ -22,14 +22,19 @@ function Cart({cart, updateCart}){
     }
 
     const valider=()=>{
-        let order= {cart, totalVente, totalAmount}
-        saveOrder(order)
-        .then((resp)=>
-        alert(JSON.stringify(resp.data)),
-        // navigate('/products')
-        ).catch((error)=>
-        alert(error)
-        )
+        const productsSale = cart?.reduce((acc, item)=> 
+        acc.includes(item.name) ? acc : acc.concat(item.name),
+        [])
+
+        let order= {productsSale, totalVente, totalAmount}
+        console.log(productsSale)
+        // saveOrder(order)
+        // .then((resp)=>
+        // alert(JSON.stringify(resp.data)),
+        // // navigate('/products')
+        // ).catch((error)=>
+        // alert(error)
+        // )
     }
 
     return (
