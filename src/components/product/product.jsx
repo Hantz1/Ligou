@@ -1,6 +1,9 @@
+import { useNavigate } from 'react-router-dom'
 import './product.css'
 
-function Product({name, prix, image}){
+function Product({id, name, prix, image}){
+    const navigate = useNavigate()
+
     return(
         <div className="card">
             <div className="header_card">
@@ -8,7 +11,7 @@ function Product({name, prix, image}){
             </div>
             <div className="body_card">
                 <div>
-                    <h5>{name}</h5>
+                    <h5 onClick={()=>navigate(`/itemProduct/${id}`)}>{name}</h5>
                     <h6>{prix} gdes</h6>
                 </div>
             </div>

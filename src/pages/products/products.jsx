@@ -97,6 +97,7 @@ function Products(){
                         ?(
                             <div key={id} onClick={()=>addToCart(name, prix,image)}>
                                 <Product 
+                                    id={id}
                                     name={name} 
                                     prix={prix} 
                                     image={image}

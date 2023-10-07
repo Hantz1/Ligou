@@ -7,8 +7,11 @@ import { useContext } from 'react'
 import { ProductContext } from '../../utils/context/context'
 import { useNavigate } from 'react-router-dom'
 
+import SaleCharts from '../../components/charts/saleCharts'
+import SaleChartsProducts from '../../components/charts/saleChartsProducts'
+
 function Home(){
-    const [products, setProducts] = useContext(ProductContext)
+    const [products] = useContext(ProductContext)
     const navigate = useNavigate()
 
     return(
@@ -75,13 +78,13 @@ function Home(){
                 <div className='overview_best_sales'>
                     <h3>Best Sales</h3>
                     <div>
-                        Sales
+                        <SaleChartsProducts/>
                     </div>
                 </div>
                 <div className='overview_chart'>
                     <h3>Chart</h3>
                     <div>
-                        Chart Sales
+                        <SaleCharts/>
                     </div>
                 </div>
             </div>

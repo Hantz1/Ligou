@@ -13,8 +13,15 @@ function AddProduct() {
   const [image, setImage] = useState(null)
 
   const onImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      setImage(URL.createObjectURL(event.target.files[0]));
+    // if (event.target.files && event.target.files[0]) {
+    //   setImage(URL.createObjectURL(event.target.files[0]));
+    // }
+    if(event.target.files){
+      var reader = new FileReader()
+      reader.readAsDataURL(event.target.files[0])
+      reader.onload = (event) => {
+        setImage( event.target.result)
+      }
     }
   }
 
