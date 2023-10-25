@@ -1,38 +1,38 @@
 import { useContext, useEffect, useState } from "react"
-import { deleteProduct, getProducts } from "../../utils/services/productService"
 import { Link, useNavigate } from "react-router-dom";
-import { PathContext, ProductContext } from "../../utils/context/context";
+import { PathContext } from "../../utils/context/context";
 import deleteElement from '../../assets/image/icons/delete_1.png'
 import edit from '../../assets/image/icons/edit.png'
 import './orders.css'
 import search from '../../assets/image/icons/search.png'
+import { deleteOrder, getOrder } from "../../utils/services/orderService";
 
 function Orders(){
     const navigate = useNavigate();
     const path = useContext(PathContext)
 
-    const [products, setProducts] = useContext(ProductContext)
-    const column = ['Id' , 'Nom', 'Prix', 'Category','Action' ]
+    const [orders, setOrders] = useState([])
+    const column = ['#' , 'Produits', 'Quantité', 'montant','date','Action' ]
 
     const [currentPage, setCurrentPage]= useState(1)
     const recordsPerPage = 5;
     const lastIndex = currentPage * recordsPerPage;
     const firstIndex = lastIndex - recordsPerPage;
-    const records = products.slice(firstIndex, lastIndex)
-    const npage = Math.ceil(products.length/recordsPerPage)
+    const records = orders.slice(firstIndex, lastIndex)
+    const npage = Math.ceil(orders.length/recordsPerPage)
     const numbers = [...Array(npage + 1).keys()].slice(1)
     
     const [searchItem, setSearchItem] = useState();
 
     useEffect(()=>{
-        handleGetProducts()
+        handleGetOrders()
     }, [])
 
-    const handleGetProducts = ()=>{
-        getProducts()
+    const handleGetOrders = ()=>{
+        getOrder()
             .then((resp)=> {
-                setProducts(resp.data)
-                console.log(products)
+                setOrders(resp.data)
+                console.log(orders)
             })
             .catch((error)=>{ 
                 console.log(error)
@@ -40,9 +40,9 @@ function Orders(){
     }
 
     function deleteItem(id){
-        deleteProduct(id)
+        deleteOrder(id)
         .then((resp)=>{
-            handleGetProducts()
+            handleGetOrders()
         })
         .catch((error)=>{
             console.log(error)
@@ -95,12 +95,13 @@ function Orders(){
                         </thead>
                         <tbody>
                             {
-                                records.map(({id, nom, prix, category})=>
+                                records.map(({id, productsConcat, totalAmount, totalVente,dateVente})=>
                                     (<tr key={id}>
                                         <td>{id}</td>
-                                        <td>{nom}</td>
-                                        <td>{prix}</td>
-                                        <td>{category}</td>
+                                        <td>{productsConcat}</td>
+                                        <td>{totalAmount}</td>
+                                        <td>{totalVente} Gourdes</td>
+                                        <td>{dateVente}</td>
                                         <td>
                                             <img src={deleteElement} alt="delete" onClick={()=> deleteItem(id)} className="icon-delete"/>
                                             <img src={edit} alt="update" onClick={()=> navigate(`/updateProduct/${id}`)} className="icon-update"/>

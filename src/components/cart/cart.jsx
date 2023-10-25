@@ -1,9 +1,17 @@
 import panier from '../../assets/image/icons/panier.png'
 import deleteitem from '../../assets/image/icons/delete.png'
 import { saveOrder } from '../../utils/services/orderService';
-import './cart.css'
+import './cart.css';
+import { useReactToPrint } from 'react-to-print';
+import { useRef } from 'react';
+import { ComponentToPrint } from '../printer/componentToPrint';
 
 function Cart({cart, updateCart}){
+
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+    });
 
     let date = new Date();
 
@@ -22,19 +30,22 @@ function Cart({cart, updateCart}){
     }
 
     const valider=()=>{
-        const productsSale = cart?.reduce((acc, item)=> 
-        acc.includes(item.name) ? acc : acc.concat(item.name),
-        [])
+        if(cart.length > 0){
+            const productsSale = cart?.reduce((acc, item)=> 
+            acc.includes(item.name) ? acc : acc.concat(item.name),
+            [])
+            const productsConcat= productsSale.toString()
+            const dateVente= date.toLocaleDateString()
 
-        let order= {productsSale, totalVente, totalAmount}
-        console.log(productsSale)
-        // saveOrder(order)
-        // .then((resp)=>
-        // alert(JSON.stringify(resp.data)),
-        // // navigate('/products')
-        // ).catch((error)=>
-        // alert(error)
-        // )
+            let order= {productsConcat, totalVente, totalAmount, dateVente}
+            saveOrder(order)
+            .then((resp)=>
+                alert(JSON.stringify(resp.data)),
+                updateCart([])
+            ).catch((error)=>
+            alert(error)
+            )
+        }
     }
 
     return (
@@ -95,9 +106,18 @@ function Cart({cart, updateCart}){
                     <h6>{totalVente} gdes</h6>
                 </div>
             </div>
-            <button className="cart_valide" onClick={()=>valider()}>
-                <h5>Print Bills</h5>
+            <button className={cart.length > 0 ? "cart_valide" : "cart_valide_disable"} onClick={()=>valider()}>
+                <h5 className={cart.length > 0 ? "cart_valide_titre" : "cart_valide_titre_disable"}>valider</h5>
             </button>
+            
+            <button onClick={handlePrint}>Print this out!</button>
+            
+            
+            {/*  */}
+            <div className="printer" >
+                <ComponentToPrint ref={componentRef} cart={cart}/>
+            </div>
+            
         </div>
     )
 }

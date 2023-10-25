@@ -128,11 +128,29 @@
     text-align: center;
   }
   
-  .cart_valide > h5{
+  .cart_valide_titre{
     color: #ffffff;
     margin: 5px;
     font-size: .9em;
     font-family: 'Montserrat Regular';
   }
 
-  
+  .cart_valide_disable{
+    width: 95%;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid #2ba062;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .cart_valide_titre_disable{
+    color: #2ba062;
+    margin: 5px;
+    font-size: .9em;
+    font-family: 'Montserrat Regular';
+  }
+
+  .printer{
+    display: none;
+  }
