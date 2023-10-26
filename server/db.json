@@ -49,6 +49,13 @@
       "totalAmount": 16,
       "dateVente": "18/10/2023",
       "id": 7
+    },
+    {
+      "productsConcat": "Milkshake,Coffee,Sandwish,Chicken,Burger,Wings,Smoothie",
+      "totalVente": 175,
+      "totalAmount": 7,
+      "dateVente": "26/10/2023",
+      "id": 8
     }
   ]
 }
