@@ -25,6 +25,10 @@ function Cart({cart, updateCart}){
     }
     // 
 
+    // Toast 
+    const [showAlert, setAlert] = useState(false) 
+    const [themeAlert, setThemeAlert] = useState('Enregistrement réussi')
+    // 
 
 
     // Printer
@@ -51,7 +55,7 @@ function Cart({cart, updateCart}){
         updateCart(FiltreCart)
     }
 
-    
+
     const valider=()=>{
         if(cart.length > 0){
             const productsSale = cart?.reduce((acc, item)=> 
@@ -63,7 +67,8 @@ function Cart({cart, updateCart}){
             let order= {productsConcat, totalVente, totalAmount, dateVente}
             saveOrder(order)
             .then((resp)=>
-                alert(JSON.stringify(resp.data)),
+                // alert(JSON.stringify(resp.data)),
+                setAlert(true),
                 handleDialog('Imprission', 'Voulez-vous imprimer votre fiche?', true),
             ).catch((error)=>
                 alert(error)
@@ -154,7 +159,7 @@ function Cart({cart, updateCart}){
             </div>
             
             { dialog.isLoading  && <Modal onDialog={confirmeDiolog} title={dialog.title} message={dialog.message}/>}
-            {/* <Toast/> */}
+            <Toast isOpen={showAlert} setOpen={setAlert} theme={themeAlert} setTheme={setThemeAlert}/>
         </div>
     )
 }

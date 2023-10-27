@@ -126,6 +126,216 @@
       "totalAmount": 7,
       "dateVente": "27/10/2023",
       "id": 18
+    },
+    {
+      "productsConcat": "Milkshake,Coffee,Sandwish,Burger,Chicken",
+      "totalVente": 150,
+      "totalAmount": 6,
+      "dateVente": "27/10/2023",
+      "id": 19
+    },
+    {
+      "productsConcat": "Milkshake,Coffee,Sandwish,Chicken,Spaguetti",
+      "totalVente": 125,
+      "totalAmount": 5,
+      "dateVente": "27/10/2023",
+      "id": 20
+    },
+    {
+      "productsConcat": "Spaguetti,Milkshake,Coffee,Chicken",
+      "totalVente": 200,
+      "totalAmount": 8,
+      "dateVente": "27/10/2023",
+      "id": 21
+    },
+    {
+      "productsConcat": "Spaguetti,Coffee,Chicken,Milkshake",
+      "totalVente": 250,
+      "totalAmount": 10,
+      "dateVente": "27/10/2023",
+      "id": 22
+    },
+    {
+      "productsConcat": "Spaguetti,Coffee,Chicken,Milkshake",
+      "totalVente": 250,
+      "totalAmount": 10,
+      "dateVente": "27/10/2023",
+      "id": 23
+    },
+    {
+      "productsConcat": "Coffee,Chicken,Milkshake,Spaguetti",
+      "totalVente": 275,
+      "totalAmount": 11,
+      "dateVente": "27/10/2023",
+      "id": 24
+    },
+    {
+      "productsConcat": "Coffee,Chicken,Milkshake,Spaguetti",
+      "totalVente": 275,
+      "totalAmount": 11,
+      "dateVente": "27/10/2023",
+      "id": 25
+    },
+    {
+      "productsConcat": "Coffee,Chicken,Milkshake,Spaguetti",
+      "totalVente": 275,
+      "totalAmount": 11,
+      "dateVente": "27/10/2023",
+      "id": 26
+    },
+    {
+      "productsConcat": "Coffee,Chicken,Milkshake,Spaguetti",
+      "totalVente": 325,
+      "totalAmount": 13,
+      "dateVente": "27/10/2023",
+      "id": 27
+    },
+    {
+      "productsConcat": "Coffee,Chicken,Milkshake,Spaguetti,Sandwish",
+      "totalVente": 350,
+      "totalAmount": 14,
+      "dateVente": "27/10/2023",
+      "id": 28
+    },
+    {
+      "productsConcat": "Coffee,Chicken,Milkshake,Spaguetti,Sandwish",
+      "totalVente": 350,
+      "totalAmount": 14,
+      "dateVente": "27/10/2023",
+      "id": 29
+    },
+    {
+      "productsConcat": "Coffee,Chicken,Milkshake,Spaguetti,Sandwish",
+      "totalVente": 350,
+      "totalAmount": 14,
+      "dateVente": "27/10/2023",
+      "id": 30
+    },
+    {
+      "productsConcat": "Coffee,Milkshake",
+      "totalVente": 100,
+      "totalAmount": 4,
+      "dateVente": "27/10/2023",
+      "id": 31
+    },
+    {
+      "productsConcat": "Coffee",
+      "totalVente": 25,
+      "totalAmount": 1,
+      "dateVente": "27/10/2023",
+      "id": 32
+    },
+    {
+      "productsConcat": "Sandwish,Coffee,Spaguetti",
+      "totalVente": 150,
+      "totalAmount": 6,
+      "dateVente": "27/10/2023",
+      "id": 33
+    },
+    {
+      "productsConcat": "Spaguetti",
+      "totalVente": 25,
+      "totalAmount": 1,
+      "dateVente": "27/10/2023",
+      "id": 34
+    },
+    {
+      "productsConcat": "Coffee",
+      "totalVente": 75,
+      "totalAmount": 3,
+      "dateVente": "27/10/2023",
+      "id": 35
+    },
+    {
+      "productsConcat": "Milkshake,Coffee,Spaguetti",
+      "totalVente": 175,
+      "totalAmount": 7,
+      "dateVente": "27/10/2023",
+      "id": 36
+    },
+    {
+      "productsConcat": "Spaguetti",
+      "totalVente": 25,
+      "totalAmount": 1,
+      "dateVente": "27/10/2023",
+      "id": 37
+    },
+    {
+      "productsConcat": "Spaguetti,Milkshake",
+      "totalVente": 50,
+      "totalAmount": 2,
+      "dateVente": "27/10/2023",
+      "id": 38
+    },
+    {
+      "productsConcat": "Chicken",
+      "totalVente": 25,
+      "totalAmount": 1,
+      "dateVente": "27/10/2023",
+      "id": 39
+    },
+    {
+      "productsConcat": "Coffee,Spaguetti",
+      "totalVente": 50,
+      "totalAmount": 2,
+      "dateVente": "27/10/2023",
+      "id": 40
+    },
+    {
+      "productsConcat": "Coffee,Milkshake",
+      "totalVente": 50,
+      "totalAmount": 2,
+      "dateVente": "27/10/2023",
+      "id": 41
+    },
+    {
+      "productsConcat": "Coffee",
+      "totalVente": 25,
+      "totalAmount": 1,
+      "dateVente": "27/10/2023",
+      "id": 42
+    },
+    {
+      "productsConcat": "Coffee",
+      "totalVente": 50,
+      "totalAmount": 2,
+      "dateVente": "27/10/2023",
+      "id": 43
+    },
+    {
+      "productsConcat": "Milkshake,Spaguetti,Sandwish",
+      "totalVente": 150,
+      "totalAmount": 6,
+      "dateVente": "27/10/2023",
+      "id": 44
+    },
+    {
+      "productsConcat": "Milkshake",
+      "totalVente": 25,
+      "totalAmount": 1,
+      "dateVente": "27/10/2023",
+      "id": 45
+    },
+    {
+      "productsConcat": "Coffee",
+      "totalVente": 25,
+      "totalAmount": 1,
+      "dateVente": "27/10/2023",
+      "id": 46
+    },
+    {
+      "productsConcat": "Milkshake,Spaguetti",
+      "totalVente": 100,
+      "totalAmount": 4,
+      "dateVente": "27/10/2023",
+      "id": 47
+    },
+    {
+      "productsConcat": "Milkshake",
+      "totalVente": 25,
+      "totalAmount": 1,
+      "dateVente": "27/10/2023",
+      "id": 48
     }
   ]
 }
