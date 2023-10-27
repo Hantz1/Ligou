@@ -27,7 +27,7 @@ function Cart({cart, updateCart}){
 
     // Toast 
     const [showAlert, setAlert] = useState(false) 
-    const [themeAlert, setThemeAlert] = useState('Enregistrement réussi')
+    const [themeAlert, setThemeAlert] = useState('')
     // 
 
 
@@ -68,10 +68,12 @@ function Cart({cart, updateCart}){
             saveOrder(order)
             .then((resp)=>
                 // alert(JSON.stringify(resp.data)),
+                setThemeAlert('Enregistrement reussi'),
                 setAlert(true),
-                handleDialog('Imprission', 'Voulez-vous imprimer votre fiche?', true),
+                handleDialog('Impression', 'Voulez-vous imprimer votre fiche?', true),
             ).catch((error)=>
-                alert(error)
+            setThemeAlert("Error d'enregistrement"),
+            setAlert(true),
             )
         }
     }

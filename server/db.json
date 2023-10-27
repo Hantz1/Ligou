@@ -336,6 +336,90 @@
       "totalAmount": 1,
       "dateVente": "27/10/2023",
       "id": 48
+    },
+    {
+      "productsConcat": "Coffee",
+      "totalVente": 25,
+      "totalAmount": 1,
+      "dateVente": "27/10/2023",
+      "id": 49
+    },
+    {
+      "productsConcat": "Coffee,Milkshake,Spaguetti",
+      "totalVente": 125,
+      "totalAmount": 5,
+      "dateVente": "27/10/2023",
+      "id": 50
+    },
+    {
+      "productsConcat": "Milkshake",
+      "totalVente": 50,
+      "totalAmount": 2,
+      "dateVente": "27/10/2023",
+      "id": 51
+    },
+    {
+      "productsConcat": "Milkshake,Spaguetti",
+      "totalVente": 75,
+      "totalAmount": 3,
+      "dateVente": "27/10/2023",
+      "id": 52
+    },
+    {
+      "productsConcat": "Spaguetti,Chicken,Burger",
+      "totalVente": 125,
+      "totalAmount": 5,
+      "dateVente": "27/10/2023",
+      "id": 53
+    },
+    {
+      "productsConcat": "Spaguetti,Coffee,Chicken",
+      "totalVente": 175,
+      "totalAmount": 7,
+      "dateVente": "27/10/2023",
+      "id": 54
+    },
+    {
+      "productsConcat": "Spaguetti,Coffee,Sandwish,Chicken",
+      "totalVente": 225,
+      "totalAmount": 9,
+      "dateVente": "27/10/2023",
+      "id": 55
+    },
+    {
+      "productsConcat": "Burger,Coffee,Spaguetti,Chicken",
+      "totalVente": 250,
+      "totalAmount": 10,
+      "dateVente": "10/27/2023",
+      "id": 56
+    },
+    {
+      "productsConcat": "Milkshake,Coffee,Sandwish,Chicken,Wings,Tea,Smoothie,Spaguetti",
+      "totalVente": 675,
+      "totalAmount": 27,
+      "dateVente": "10/27/2023",
+      "id": 57
+    },
+    {
+      "productsConcat": "Coffee,Smoothie",
+      "totalVente": 150,
+      "totalAmount": 6,
+      "dateVente": "27/10/2023",
+      "id": 64
+    },
+    {
+      "productsConcat": "Coffee,Smoothie,Chicken,Spaguetti",
+      "totalVente": 250,
+      "totalAmount": 10,
+      "dateVente": "27/10/2023",
+      "id": 65
+    },
+    {
+      "productsConcat": "Coffee,Smoothie,Chicken,Spaguetti",
+      "totalVente": 250,
+      "totalAmount": 10,
+      "dateVente": "27/10/2023",
+      "id": 66
     }
   ]
 }

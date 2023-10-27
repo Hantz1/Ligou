@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
+import { hasAuthenticated } from "../services/Auth.Api";
 
 export const ProductContext = createContext()
-
 export function ProductProvider ({children}){
     const products= useState([])
     
@@ -29,5 +29,15 @@ export function IsOpenProvider({children}){
         <IsOpenContext.Provider value={isOpen}>
             {children}
         </IsOpenContext.Provider>
+    )
+}
+
+export const IsAuthenticated = createContext()
+export function IsAuthenticatedProvider({children}){
+    const auth = useState(hasAuthenticated())
+    return(
+        <IsAuthenticated.Provider value={auth}>
+            {children}
+        </IsAuthenticated.Provider>
     )
 }
