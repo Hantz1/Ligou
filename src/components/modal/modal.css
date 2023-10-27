@@ -1,0 +1,39 @@
+.modal-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 50px;
+    border-radius: 5px;
+}
+
+.modal-button-group{
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.model-no{
+    background-color: #fff;
+    
+}
+
+.model-yes{
+    background-color: red;
+}

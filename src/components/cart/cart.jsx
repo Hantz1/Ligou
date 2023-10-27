@@ -3,15 +3,37 @@ import deleteitem from '../../assets/image/icons/delete.png'
 import { saveOrder } from '../../utils/services/orderService';
 import './cart.css';
 import { useReactToPrint } from 'react-to-print';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { ComponentToPrint } from '../printer/componentToPrint';
+import Toast from '../toast/toast';
+import Modal from '../modal/modal';
 
 function Cart({cart, updateCart}){
 
+    // Dialog
+    const [dialog, setDialog] = useState({
+        title:'',
+        message: '',
+        isLoading: false
+    }) 
+    const handleDialog = (title, message, isLoading)=>{
+        setDialog({
+            title,
+            message,
+            isLoading
+        })
+    }
+    // 
+
+
+
+    // Printer
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
     });
+    // 
+
 
     let date = new Date();
 
@@ -29,6 +51,7 @@ function Cart({cart, updateCart}){
         updateCart(FiltreCart)
     }
 
+    
     const valider=()=>{
         if(cart.length > 0){
             const productsSale = cart?.reduce((acc, item)=> 
@@ -41,10 +64,22 @@ function Cart({cart, updateCart}){
             saveOrder(order)
             .then((resp)=>
                 alert(JSON.stringify(resp.data)),
-                updateCart([])
+                handleDialog('Imprission', 'Voulez-vous imprimer votre fiche?', true),
             ).catch((error)=>
-            alert(error)
+                alert(error)
             )
+        }
+    }
+
+    // Ce qu'on doit faire selon le choix de la Boite de dialog
+    const confirmeDiolog = (choose) =>{
+        if(choose){
+            handlePrint()
+            updateCart([])
+            handleDialog('', '', false)
+        }else{
+            updateCart([])
+            handleDialog('', '', false)
         }
     }
 
@@ -110,7 +145,7 @@ function Cart({cart, updateCart}){
                 <h5 className={cart.length > 0 ? "cart_valide_titre" : "cart_valide_titre_disable"}>valider</h5>
             </button>
             
-            <button onClick={handlePrint}>Print this out!</button>
+            {/* <button onClick={handlePrint}>Print this out!</button> */}
             
             
             {/*  */}
@@ -118,6 +153,8 @@ function Cart({cart, updateCart}){
                 <ComponentToPrint ref={componentRef} cart={cart}/>
             </div>
             
+            { dialog.isLoading  && <Modal onDialog={confirmeDiolog} title={dialog.title} message={dialog.message}/>}
+            {/* <Toast/> */}
         </div>
     )
 }
